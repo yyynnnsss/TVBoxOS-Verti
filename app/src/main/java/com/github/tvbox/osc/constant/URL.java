@@ -8,6 +8,6 @@ package com.github.tvbox.osc.constant;
  */
 public class URL {
     public static final String DOMAIN_NAME_PROXY = "https://ghproxy.com/";
-    public static final String GITHUB_VERSION_PATH = "https://raw.githubusercontent.com/XiaoRanLiu3119/Release/main/TVBoxOS-Mobile/version.json";
+    public static final String GITHUB_VERSION_PATH = "https://chengxue2020.github.io/Cat-ports/config/Mobile.json";
 
 }
