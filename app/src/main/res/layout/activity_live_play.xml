@@ -714,7 +714,7 @@
 		android:background="@drawable/shape_user_search"
 		android:layout_width="140dp"
 		android:layout_height="50dp"
-		android:layout_marginTop="30dp"
+		android:layout_marginTop="60dp"
 		android:layout_marginRight="25dp"
 		>
 		<ImageView
@@ -771,12 +771,93 @@
 			/>
 	</RelativeLayout>
 
-	<DigitalClock
-		android:id="@+id/clock"
-		android:layout_gravity="right|top"
+	<RelativeLayout
+		android:id="@+id/container_top_right_menu"
 		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:textColor="@color/white"
-		android:layout_marginEnd="10dp"
-		android:layout_margin="10dp"/>
+		android:layout_height="match_parent"
+		android:layout_gravity="right"
+		android:paddingEnd="30dp"
+		android:paddingTop="10dp"
+		android:background="@drawable/bg_gradient_black_r2l">
+
+		<DigitalClock
+			android:id="@+id/clock"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor="@color/white"/>
+
+		<LinearLayout
+			android:id="@+id/right_top_menu"
+			android:layout_below="@+id/clock"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="end">
+
+			<androidx.appcompat.widget.AppCompatImageView
+				android:id="@+id/cast"
+				android:layout_width="34dp"
+				android:layout_height="34dp"
+				android:layout_marginEnd="10dp"
+				android:padding="4dp"
+				android:scaleType="centerCrop"
+				android:src="@drawable/ic_cast_18"
+				app:tint="@color/white" />
+
+			<androidx.appcompat.widget.AppCompatImageView
+				android:id="@+id/setting"
+				android:layout_width="34dp"
+				android:layout_height="34dp"
+				android:scaleType="centerCrop"
+				android:padding="4dp"
+				android:src="@drawable/ic_player_setting"
+				android:tint="@color/white"
+				android:layout_marginEnd="10dp"
+				/>
+
+			<androidx.appcompat.widget.AppCompatImageView
+				android:id="@+id/quit"
+				android:layout_width="34dp"
+				android:layout_height="34dp"
+				android:scaleType="centerCrop"
+				android:padding="4dp"
+				android:src="@drawable/ic_quit"
+				android:tint="@color/white"
+				/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:layout_centerInParent="true"
+			>
+
+			<androidx.appcompat.widget.AppCompatImageView
+				android:id="@+id/pre"
+				android:layout_width="54dp"
+				android:layout_height="54dp"
+				android:scaleType="centerCrop"
+				android:padding="4dp"
+				android:src="@drawable/icon_pre"
+				android:tint="@color/white"
+				android:layout_marginStart="4dp"
+				android:rotation="-90"
+				/>
+			<androidx.appcompat.widget.AppCompatImageView
+				android:id="@+id/next"
+				android:layout_width="54dp"
+				android:layout_height="54dp"
+				android:scaleType="centerCrop"
+				android:padding="4dp"
+				android:src="@drawable/icon_pre"
+				android:tint="@color/white"
+				android:layout_marginStart="4dp"
+				android:rotation="90"
+				android:layout_marginTop="30dp"
+				/>
+		</LinearLayout>
+
+	</RelativeLayout>
+
 </FrameLayout>

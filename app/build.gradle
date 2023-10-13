@@ -5,11 +5,11 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId 'com.github.tvbox.osc.mobile'
+        applicationId 'com.github.tvbox.osc'
         minSdkVersion 24
         targetSdkVersion 30
-        versionCode 12
-        versionName '0.3'
+        versionCode 13
+        versionName '0.4'
         multiDexEnabled true
         //设置room的Schema的位置
         javaCompileOptions {
@@ -52,7 +52,7 @@ android {
 
     buildTypes {
         debug {
-            signingConfig signingConfigs.config
+            //signingConfig signingConfigs.config
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             minifyEnabled false
 
@@ -89,6 +89,10 @@ android {
     }
     buildFeatures {
         viewBinding true
+    }
+
+    packagingOptions {//引入dlna-cast时的文件冲突
+        exclude 'META-INF/beans.xml'
     }
 }
 
@@ -174,9 +178,6 @@ dependencies {
     implementation "com.github.gzu-liyujiang.AndroidPicker:FilePicker:${androidPickerVersion}"
     //崩溃
     implementation project(":crash")
-    //版本更新
-    implementation 'com.qianwen:update-app:3.5.2'
-    implementation 'com.qianwen:okhttp-utils:3.8.0'
-    //展开折叠
-    implementation 'com.github.cachapa:ExpandableLayout:2.9.2'
+    //dlna投屏
+    implementation 'com.github.devin1014.DLNA-Cast:dlna-dmc:V1.0.0'
 }
