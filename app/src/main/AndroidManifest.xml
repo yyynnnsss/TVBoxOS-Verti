@@ -65,6 +65,7 @@
         </activity>
         <activity
             android:name=".ui.activity.LiveActivity"
+            android:launchMode="singleTop"
             android:configChanges="orientation|screenSize|keyboardHidden|uiMode|screenLayout"/>
         <activity
             android:name=".ui.activity.LivePlayActivity"
@@ -73,6 +74,7 @@
         <activity
             android:name=".ui.activity.DetailActivity"
             android:supportsPictureInPicture="true"
+            android:launchMode="singleTask"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|uiMode"/>
         <activity
             android:name=".ui.activity.SearchActivity"
