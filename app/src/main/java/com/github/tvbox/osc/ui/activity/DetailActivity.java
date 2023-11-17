@@ -30,6 +30,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.blankj.utilcode.util.ConvertUtils;
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.NotificationUtils;
 import com.blankj.utilcode.util.ScreenUtils;
 import com.blankj.utilcode.util.ServiceUtils;
 import com.blankj.utilcode.util.ToastUtils;
@@ -125,7 +126,7 @@ public class DetailActivity extends BaseVbActivity<ActivityDetailBinding> {
      * 是否开启后台播放标记,不在广播开启,onPause根据标记开启
      */
     boolean openBackgroundPlay;
-    private BroadcastReceiver mPipActionReceiver;
+    private BroadcastReceiver mRemoteActionReceiver;
 
     @Override
     protected void init() {
@@ -908,7 +909,7 @@ public class DetailActivity extends BaseVbActivity<ActivityDetailBinding> {
      */
     private void registerActionReceiver(boolean isRegister){
         if (isRegister) {
-            mPipActionReceiver = new BroadcastReceiver() {
+            mRemoteActionReceiver = new BroadcastReceiver() {
 
                 @Override
                 public void onReceive(Context context, Intent intent) {
@@ -923,14 +924,18 @@ public class DetailActivity extends BaseVbActivity<ActivityDetailBinding> {
                         playFragment.getController().togglePlay();
                     } else if (currentStatus == Constants.BROADCAST_ACTION_NEXT) {
                         playFragment.playNext(false);
+                    } else if (currentStatus == Constants.BROADCAST_ACTION_CLOSE) {
+                        playServerSwitch(false);
+                        finish();
+                        NotificationUtils.cancelAll();
                     }
                 }
             };
-            registerReceiver(mPipActionReceiver, new IntentFilter(Constants.BROADCAST_ACTION));
+            registerReceiver(mRemoteActionReceiver, new IntentFilter(Constants.BROADCAST_ACTION));
         } else {
-            if (mPipActionReceiver!=null){
-                unregisterReceiver(mPipActionReceiver);
-                mPipActionReceiver = null;
+            if (mRemoteActionReceiver !=null){
+                unregisterReceiver(mRemoteActionReceiver);
+                mRemoteActionReceiver = null;
             }
             if (playFragment.getPlayer().isPlaying()){// 退出画中画时,暂停播放(画中画的全屏也会触发,但全屏后会自动播放)
                 playFragment.getController().togglePlay();
