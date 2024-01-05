@@ -1,6 +1,6 @@
 <resources>
     <!--  app名称   -->
-    <string name="app_name">Mobile Box</string>
+    <string name="app_name">MBox</string>
 
     <string name="about">基于TVBox开发，代码开源，不收集或上传任何数据。
         \n软件只提供展示功能，不参与任何订阅或源的制作和发布。
@@ -21,4 +21,18 @@
         \n请不要相信任何订阅中以任何形势出现的任何广告。。
         \n本应用不采集任何用户信息，如果您发现任何违规订阅，请立即删除。
              </string>
+
+    <string-array name="doh_name">
+        <item>System</item>
+        <item>Tencent</item>
+        <item>Alibaba</item>
+        <item>360</item>
+    </string-array>
+
+    <string-array name="doh_url">
+        <item />
+        <item>https://doh.pub/dns-query</item>
+        <item>https://dns.alidns.com/dns-query</item>
+        <item>https://doh.360.cn/dns-query</item>
+    </string-array>
 </resources>
